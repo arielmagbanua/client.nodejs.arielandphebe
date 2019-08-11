@@ -1,0 +1,24 @@
+{
+  "name": "client.nodejs.arielandphebe",
+  "version": "1.0.0",
+  "description": "My wedding's application",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/arielmagbanua/client.nodejs.arielandphebe.git"
+  },
+  "keywords": [
+    "wedding",
+    "cana",
+    "application"
+  ],
+  "author": "Ariel Magbanua <ariel@arielmagbanua.com> (https://arielmagbanua.com)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/arielmagbanua/client.nodejs.arielandphebe/issues"
+  },
+  "homepage": "https://github.com/arielmagbanua/client.nodejs.arielandphebe#readme"
+}
