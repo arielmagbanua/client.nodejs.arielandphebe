@@ -1,24 +1,12 @@
-const { gulp, src, dest, series, watch } = require('gulp');
+const { src, dest, series, watch } = require('gulp');
 const sass = require('gulp-sass');
 const uglify = require('gulp-uglify');
-// var rename = require('gulp-rename');
-// var notify = require('gulp-notify');
 const minifycss = require('gulp-minify-css');
 const babel = require('gulp-babel');
 const concat = require('gulp-concat');
 const plumber = require('gulp-plumber');
 const sourcemaps = require('gulp-sourcemaps');
 const autoprefixer = require('gulp-autoprefixer');
-
-/* Setup scss path */
-let paths = {
-	scss: './src/scss/*.scss'
-};
-
-const defaultTask = () => {
-	// place code for your default task here
-	console.log('Derp!!!');
-};
 
 const homeTask = () => {
 	return src([
