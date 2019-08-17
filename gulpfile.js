@@ -1,16 +1,14 @@
 const { gulp, src, dest, series, watch } = require('gulp');
-// var sass = require('gulp-sass');
+const sass = require('gulp-sass');
 const uglify = require('gulp-uglify');
 // var rename = require('gulp-rename');
 // var notify = require('gulp-notify');
-// var minifycss = require('gulp-minify-css');
+const minifycss = require('gulp-minify-css');
 const babel = require('gulp-babel');
 const concat = require('gulp-concat');
 const plumber = require('gulp-plumber');
-// var browserSync = require('browser-sync');
-// var reload = browserSync.reload;
-// const sourcemaps = require('gulp-sourcemaps');
-// const autoprefixer = require('gulp-autoprefixer');
+const sourcemaps = require('gulp-sourcemaps');
+const autoprefixer = require('gulp-autoprefixer');
 
 /* Setup scss path */
 let paths = {
@@ -63,10 +61,52 @@ const scriptsTask = () => {
 		.pipe(dest('public/js'));
 };
 
+const styleTask = () => {
+	return src('src/scss/style.scss')
+			.pipe(plumber())
+			.pipe(sass({
+				errLogToConsole: true,
+				// outputStyle: 'compressed',
+				// outputStyle: 'compact',
+				// outputStyle: 'nested',
+				outputStyle: 'expanded',
+				precision: 10
+			}))
+			.pipe(sourcemaps.init())
+			.pipe(autoprefixer({
+				browsers: ['last 2 versions'],
+				cascade: false
+			}))
+			.pipe(minifycss())
+			.pipe(dest('public/css'));
+};
+
+const mergedStylesTask = () => {
+	return src([
+		'src/css/vendor/bootstrap.min.css',
+		'src/css/vendor/animate.css',
+		'src/css/vendor/magnific-popup.css',
+		'src/css/vendor/flexslider.css',
+		'src/fonts/icomoon-demo/style.css',
+	]).pipe(plumber())
+		.pipe(autoprefixer({
+		    browsers: ['last 2 versions'],
+		    cascade: false
+		}))
+		.pipe(concat('styles-merged.css'))
+		.pipe(minifycss())
+		.pipe(sourcemaps.write('.'))
+		.pipe(dest('public/css'));
+}
+
 exports.homeTask = homeTask;
 exports.scriptsTask = scriptsTask;
 exports.googleMapTask = googleMapTask;
+exports.styleTask = styleTask;
+exports.mergedStylesTask = mergedStylesTask;
 exports.watch = () => {
-	watch('src/js/**/*.js', series(scriptsTask, homeTask, googleMapTask));
+	watch('src/js/**/*.js', series(scriptsTask, homeTask, styleTask));
+	watch('src/scss/**/*.scss', series(styleTask, mergedStylesTask));
+	watch('src/css/**/*.css', series(styleTask, mergedStylesTask));
 };
-exports.default = series(scriptsTask, homeTask);
+exports.default = series(scriptsTask, homeTask, googleMapTask, mergedStylesTask, styleTask);
