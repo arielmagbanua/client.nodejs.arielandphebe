@@ -60,12 +60,12 @@ const styleTask = () => {
 				outputStyle: 'expanded',
 				precision: 10
 			}))
-			.pipe(sourcemaps.init())
 			.pipe(autoprefixer({
 				browsers: ['last 2 versions'],
 				cascade: false
 			}))
 			.pipe(minifycss())
+			.pipe(sourcemaps.write('.'))
 			.pipe(dest('public/css'));
 };
 
