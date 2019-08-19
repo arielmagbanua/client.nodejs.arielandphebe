@@ -12,7 +12,16 @@ const homeTask = () => {
 	return src([
 		/* Add your JS files here, they will be combined in this order */
 		'src/js/main.js',
-	]).pipe(uglify())
+	]).pipe(plumber())
+		.pipe(babel({
+			presets: [
+				[
+					'@babel/env', { modules: false }
+				]
+			]
+		}))
+		.pipe(concat('main.js'))
+		.pipe(uglify())
 		.pipe(dest('public/js'));
 };
 

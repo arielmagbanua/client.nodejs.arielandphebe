@@ -100,7 +100,8 @@
                                 Thus says the Lord, “Let not a wise man boast of his wisdom,
                                 and let not the mighty man boast of his might,
                                 let not a rich man boast of his riches; but let him who boasts boast of this,
-                                that he understands and knows Me, that I am the Lord who exercises lovingkindness, justice and righteousness on earth;
+                                that he understands and knows Me, that I am the Lord who exercises lovingkindness,
+                                justice and righteousness on earth;
                                 for I delight in these things,” declares the Lord.
                             </p>
                             <p>Jeremiah 9:23-24</p>
@@ -118,7 +119,8 @@
                         <h2 class="text-center">Phebe Maris Buella</h2>
                         <blockquote class="blockquote">
                             <p>
-                                For I know the plans I have for you, declares the Lord, plans to prosper you and not to harm you, plans to give you hope and a future.
+                                For I know the plans I have for you, declares the Lord, plans to prosper you and not to
+                                harm you, plans to give you hope and a future.
                             </p>
                             <p>Jeremiah 29:11</p>
                         </blockquote>
@@ -297,23 +299,29 @@
             <div class="row">
                 <div class="col-md-6 col-md-offset-3">
                     <div class="probootstrap-card probootstrap-animate">
-                        <form class="probootstrap-form">
+                        <form id="rsvp-form" method="POST" action="/api/send-rsvp" class="probootstrap-form">
                             <div class="form-group">
                                 <label for="name">Your Name</label>
-                                <input type="text" class="form-control" id="name">
+                                <input type="text" class="form-control" name="name" id="name">
                             </div>
                             <div class="form-group">
                                 <label for="email">Your Email</label>
-                                <input type="text" class="form-control" id="email">
+                                <input type="text" class="form-control" name="email" id="email">
                             </div>
                             <div class="form-group">
                                 <p>Will you attend?</p>
-                                <label for="yes"><input type="checkbox" id="yes"> Yes, I will be there</label> <br>
-                                <label for="no"><input type="checkbox" id="no"> Sorry, I can't come</label> <br>
+                                <div class="custom-control rsvp-radio">
+                                    <input type="radio" id="radio-yes" name="attendance" class="custom-control-input">
+                                    <label class="control-label" for="radio-yes">Yes, I will be there.</label>
+                                </div>
+                                <div class="custom-control rsvp-radio">
+                                    <input type="radio" id="radio-no" name="attendance" class="custom-control-input">
+                                    <label class="control-label" for="radio-no">Sorry, I can't come.</label>
+                                </div>
                             </div>
                             <div class="form-group">
                                 <label for="note">Note</label>
-                                <textarea name="" id="note" cols="20" rows="5" class="form-control"></textarea>
+                                <textarea name="note" id="note" cols="20" rows="5" class="form-control"></textarea>
                             </div>
                             <div class="form-group">
                                 <input type="submit" class="btn btn-primary btn-lg" value="Send RSVP">
