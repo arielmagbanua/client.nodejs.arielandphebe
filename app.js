@@ -10,6 +10,7 @@ const app = express();
 
 // parse request body
 app.use(bodyParser.urlencoded({extended: false}));
+app.use(bodyParser.json());
 
 // set a static directory
 app.use(express.static(path.join(__dirname, 'public')));

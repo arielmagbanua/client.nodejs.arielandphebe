@@ -299,7 +299,7 @@
             <div class="row">
                 <div class="col-md-6 col-md-offset-3">
                     <div class="probootstrap-card probootstrap-animate">
-                        <form id="rsvp-form" method="POST" action="/api/send-rsvp" class="probootstrap-form">
+                        <form id="rsvp-form" method="POST" class="probootstrap-form">
                             <div class="form-group">
                                 <label for="name">Your Name</label>
                                 <input type="text" class="form-control" name="name" id="name">
@@ -311,11 +311,11 @@
                             <div class="form-group">
                                 <p>Will you attend?</p>
                                 <div class="custom-control rsvp-radio">
-                                    <input type="radio" id="radio-yes" name="attendance" class="custom-control-input">
+                                    <input type="radio" id="radio-yes" name="attendance" class="radio-control-input" checked="true" value="yes">
                                     <label class="control-label" for="radio-yes">Yes, I will be there.</label>
                                 </div>
                                 <div class="custom-control rsvp-radio">
-                                    <input type="radio" id="radio-no" name="attendance" class="custom-control-input">
+                                    <input type="radio" id="radio-no" name="attendance" class="radio-control-input" value="no">
                                     <label class="control-label" for="radio-no">Sorry, I can't come.</label>
                                 </div>
                             </div>

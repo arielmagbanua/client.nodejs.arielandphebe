@@ -12,6 +12,7 @@ const homeTask = () => {
 	return src([
 		/* Add your JS files here, they will be combined in this order */
 		'src/js/main.js',
+		'src/js/rsvp.js'
 	]).pipe(plumber())
 		.pipe(babel({
 			presets: [
