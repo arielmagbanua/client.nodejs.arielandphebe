@@ -17,8 +17,14 @@
                     note: noteElement.value
                 })
             }).then((response) => response.json())
-                .then((response) => console.log(response))
-                .catch((error) => console.log(error));
+                .then((response) => {
+                    console.log(response);
+                    // TODO: notify user via modal that rsvp was sent successfully.
+                })
+                .catch((error) => {
+                    console.log(error)
+                    // TODO: notify user via modal that rsvp was sent unsuccessfully.
+                });
         });
     });
 })();
