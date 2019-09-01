@@ -1051,7 +1051,7 @@ a {
 	}
 }
 .owl-carousel .owl-controls,
-.owl-carousel-posts .owl-controls, {
+.owl-carousel-posts .owl-controls {
 	margin-top: 0;
 }
 .owl-carousel .owl-controls .owl-nav .owl-next,
@@ -1399,5 +1399,9 @@ a {
 	@media screen and (max-width: $screen-sm) {
 		max-width: 100%;
 	}
+}
+
+.no-bottom-padding {
+	padding-bottom: 0px;
 }
 

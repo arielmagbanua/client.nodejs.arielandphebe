@@ -236,17 +236,15 @@
 
 	// Reflect scrolling in navigation
 	var navActive = function(section) {
-
 		var $el = $('.navbar-nav');
 		$el.find('li').removeClass('active');
 		$el.each(function(){
+			console.log('a[data-nav-section="'+section+'"]');
 			$(this).find('a[data-nav-section="'+section+'"]').closest('li').addClass('active');
 		});
-
 	};
 
 	var navigationSection = function() {
-
 		var $section = $('section[data-section]');
 		
 		$section.waypoint(function(direction) {
@@ -264,23 +262,20 @@
 		}, {
 		  	offset: function() { return -$(this.element).height() - 155; }
 		});
-
 	};
 
 	var dateCountDown = function() {
 		$('.date-countdown').simplyCountdown({
-	    year: 2020, // year
-	    month: 4, // month
-	    day: 23, // day
-	    hours: 12, // Default is 0 [0-23] integer
-      minutes: 0, // Default is 0 [0-59] integer
-      seconds: 0, // Default is 0 [0-59] integer
+	    	year: 2020, // year
+	    	month: 4, // month
+	    	day: 23, // day
+	    	hours: 12, // Default is 0 [0-23] integer
+      		minutes: 0, // Default is 0 [0-59] integer
+      		seconds: 0, // Default is 0 [0-59] integer
 		});
 	};
 
 	var magnificPopupControl = function() {
-
-
 		$('.image-popup').magnificPopup({
 			type: 'image',
 			removalDelay: 300,
@@ -321,16 +316,15 @@
 			}
 		});
 
-
 		$('.popup-youtube, .popup-vimeo, .popup-gmaps').magnificPopup({
-      disableOn: 700,
-      type: 'iframe',
-      mainClass: 'mfp-fade',
-      removalDelay: 160,
-      preloader: false,
+			disableOn: 700,
+			type: 'iframe',
+			mainClass: 'mfp-fade',
+			removalDelay: 160,
+			preloader: false,
 
-      fixedContentPos: false
-    });
+			fixedContentPos: false
+		});
 	};
 
 
