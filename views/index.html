@@ -292,6 +292,30 @@
         </div>
     </section>
     -->
+
+    <!-- Modal -->
+    <div class="modal fade" id="rsvp-confirmation-modal" tabindex="-1" role="dialog" aria-labelledby="rsvp-confirmation-title" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header no-border">
+                    <h3 class="modal-title" id="rsvp-confirmation-title">RSVP</h3>
+                    <!-- <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button> -->
+                </div>
+                <div class="modal-body">
+                    <!-- TODO: Message here-->
+                    <p id="rsvp-modal-message">
+                        Thank you for responding!
+                    </p>
+                </div>
+                <div class="modal-footer no-border">
+                    <button type="button" class="btn btn-primary" data-dismiss="modal">Ok</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <section class="probootstrap-section probootstrap-border-top" data-section="rsvp">
         <div class="container">
             <div class="row mb40">
@@ -328,7 +352,7 @@
                                 <textarea name="note" id="note" cols="20" rows="5" class="form-control"></textarea>
                             </div>
                             <div class="form-group">
-                                <input type="submit" class="btn btn-primary btn-lg" value="Send RSVP">
+                                <input type="submit" id="rsvp-submit" class="btn btn-primary btn-lg" value="Send RSVP">
                             </div>
                         </form>
                     </div>
