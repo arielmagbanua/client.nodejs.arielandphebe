@@ -8,4 +8,3 @@ exports.getSocial = (req, res, next) => {
 exports.getIndex = (req, res, next) => {
 	res.sendFile(path.join(rootDir, 'views', 'index.html'));
 };
-
