@@ -3,7 +3,7 @@ const bodyParser = require('body-parser');
 const path = require('path');
 
 // import routes
-const rootRoutes = require('./routes/root');
+const appRoutes = require('./routes/app');
 const apiRoutes = require('./routes/api');
 
 const app = express();
@@ -15,7 +15,7 @@ app.use(bodyParser.json());
 // set a static directory
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.use(rootRoutes);
+app.use(appRoutes);
 app.use('/api', apiRoutes);
 
 const server = app.listen(8080, () => {
