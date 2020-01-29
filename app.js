@@ -18,7 +18,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use(appRoutes);
 app.use('/api', apiRoutes);
 
-const server = app.listen(8080, () => {
+const server = app.listen(2304, () => {
     const host = server.address().address;
     const port = server.address().port;
     console.log(`App listening at https://${host}:${port}`);
