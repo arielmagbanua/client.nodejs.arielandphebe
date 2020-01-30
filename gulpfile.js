@@ -14,15 +14,15 @@ const homeTask = () => {
 		'src/js/main.js',
 		'src/js/rsvp.js'
 	]).pipe(plumber())
-		.pipe(babel({
-			presets: [
-				[
-					'@babel/env', { modules: false }
-				]
-			]
-		}))
+		// .pipe(babel({
+		// 	presets: [
+		// 		[
+		// 			'@babel/env', { modules: false }
+		// 		]
+		// 	]
+		// }))
 		.pipe(concat('main.js'))
-		.pipe(uglify())
+		// .pipe(uglify())
 		.pipe(dest('public/js'));
 };
 
