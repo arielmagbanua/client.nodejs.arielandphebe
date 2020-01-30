@@ -2,7 +2,7 @@ const path = require('path');
 const rootDir = require('../utils/path');
 const axios = require('axios').default;
 
-exports.getSocial = (req, res, next) => {
+exports.getSocialTest = (req, res, next) => {
 	const hashTag = req.params.hashTag;
 	const requestUrl = `https://api.twitter.com/1.1/search/tweets.json?q=%23${hashTag}&result_type=recent`;
 
@@ -46,4 +46,8 @@ exports.getSocial = (req, res, next) => {
 
 exports.getIndex = (req, res, next) => {
 	res.sendFile(path.join(rootDir, 'views', 'index.html'));
+};
+
+exports.getSocial = (req, res, next) => {
+	res.sendFile(path.join(rootDir, 'dist', 'social.html'));
 };
