@@ -88,8 +88,8 @@ const mergedStylesTask = () => {
 		'src/fonts/icomoon-demo/style.css',
 	]).pipe(plumber())
 		.pipe(autoprefixer({
-		    browsers: ['last 2 versions'],
-		    cascade: false
+			browsers: ['last 2 versions'],
+			cascade: false
 		}))
 		.pipe(concat('styles-merged.css'))
 		.pipe(minifycss())
