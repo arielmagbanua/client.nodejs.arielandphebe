@@ -1,5 +1,5 @@
 <template>
-  <v-app id="inspire">
+  <v-app>
     <v-navigation-drawer v-model="drawer" app clipped>
       <v-list dense>
         <v-list-item link to="/social" exact>
@@ -29,7 +29,7 @@
       </v-list>
     </v-navigation-drawer>
 
-    <v-app-bar app clipped-left>
+    <v-app-bar app clipped-left color="primary">
       <v-app-bar-nav-icon @click.stop="drawer = !drawer" />
       <v-toolbar-title>#phebeisyursariel</v-toolbar-title>
     </v-app-bar>
@@ -52,6 +52,11 @@ export default {
 
   data: () => ({
     drawer: null
-  })
+  }),
+
+  created() {
+    this.$vuetify.theme.light = true;
+    console.log(this.$vuetify);
+  }
 };
 </script>
