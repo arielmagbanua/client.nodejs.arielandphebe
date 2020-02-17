@@ -11,6 +11,7 @@
             :id="tweet.id"
             :text="tweet.text"
             :owner="tweet.owner"
+            :media="tweet.media"
           />
         </v-col>
       </v-row>
@@ -39,15 +40,7 @@
 
   // Initialize Cloud Firestore through Firebase
   firebase.initializeApp(firebaseConfig);
-
   const firestore = firebase.firestore();
-
-  // firebase.firestore().enablePersistence()
-  //   .catch((err) => {
-  //     console.error(err);
-  //     console.log(err.code);
-  //   });
-
   const tweetCollection = firestore.collection('tweets');
 
   export default {
@@ -83,15 +76,17 @@
             .then((tweets) => {
               // this.tweets = tweets;
               this.tweets = tweets.map((tweet, index) => {
+                // default flex size
                 let cardFlexWidth = 3
 
                 if (index <= 1) {
-                  cardFlexWidth = 6;
+                  cardFlexWidth = 4;
                 }
 
                 // resize for special case where tweet is too long
-                if (cardFlexWidth === 3 && tweet.text.length > 100) {
-                  cardFlexWidth = 6;
+                if ((cardFlexWidth === 3 && tweet.text.length > 100) ||
+                    tweet.media.length > 0) {
+                  cardFlexWidth = 4;
                 }
                 
                 tweet.flex = cardFlexWidth;

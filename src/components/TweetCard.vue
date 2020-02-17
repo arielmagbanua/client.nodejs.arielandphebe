@@ -9,6 +9,12 @@
 
     <v-card-text class="headline font-weight-bold">"{{ text }}"</v-card-text>
 
+    <v-img
+      v-if="media && media.length > 0"
+      :src="media[0]"
+      aspect-ratio="2.5">
+    </v-img>
+
     <v-card-actions>
       <v-list-item class="grow">
         <v-list-item-avatar color="grey darken-3">
@@ -61,6 +67,10 @@ export default {
     media: Array
     // likes: Number,
     // shares: Number
+  },
+  
+  propsData: {
+    media: []
   },
 
   data: () => ({
