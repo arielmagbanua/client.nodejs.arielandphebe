@@ -12,7 +12,13 @@
     <v-img
       v-if="media && media.length > 0"
       :src="media[0]"
-      aspect-ratio="2.5">
+      aspect-ratio="2.5"
+      @click="openTweet({
+        id: id,
+        text: text,
+        owner: owner,
+        media: media
+      })">
     </v-img>
 
     <v-card-actions>
@@ -68,13 +74,16 @@ export default {
     // likes: Number,
     // shares: Number
   },
-  
-  propsData: {
-    media: []
-  },
 
   data: () => ({
     
-  })
+  }),
+
+  methods: {
+    openTweet(tweet){
+      // emit open tweet dialog event
+      this.$parent.$emit('open-tweet', tweet);
+    }
+  }
 };
 </script>
