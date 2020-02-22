@@ -18,3 +18,14 @@ node_modules/
 
 # source files (such as sass source files)
 src/scss/
+
+# ignore files from dist since it is already being compiled or copied by gulp
+# dist/favicon.ico
+# dist/img/
+# dist/css/style.css
+# dist/css/styles-merged.css
+# dist/css/styles-merged.css.map
+# dist/js/google-map.js
+# dist/js/main.js
+# dist/js/scripts.js
+dist/
