@@ -49,5 +49,5 @@ exports.getIndex = (req, res, next) => {
 };
 
 exports.getSocial = (req, res, next) => {
-	res.sendFile(path.join(rootDir, 'dist', 'social.html'));
+	res.sendFile(path.join(rootDir, 'public', 'social.html'));
 };
