@@ -41,7 +41,7 @@ const googleMapTask = () => {
 		}))
 		.pipe(uglify())
 		.pipe(dest('public/js'));
-}
+};
 
 const scriptsTask = () => {
 	return src([
@@ -95,16 +95,29 @@ const mergedStylesTask = () => {
 		.pipe(minifycss())
 		.pipe(sourcemaps.write('.'))
 		.pipe(dest('public/css'));
-}
+};
+
+const copyImagesTask = () => {
+	src([
+		'src/assets/favicon.ico'
+	])
+		.pipe(dest('public'));
+
+	return src([
+		'src/assets/img/**'
+	])
+		.pipe(dest('public/img'));
+};
 
 exports.homeTask = homeTask;
 exports.scriptsTask = scriptsTask;
 exports.googleMapTask = googleMapTask;
 exports.styleTask = styleTask;
 exports.mergedStylesTask = mergedStylesTask;
+exports.copyImagesTask = copyImagesTask;
 exports.watch = () => {
 	watch('src/js/**/*.js', series(scriptsTask, homeTask, styleTask));
 	watch('src/scss/**/*.scss', series(styleTask, mergedStylesTask));
 	watch('src/css/**/*.css', series(styleTask, mergedStylesTask));
 };
-exports.default = series(scriptsTask, homeTask, googleMapTask, mergedStylesTask, styleTask);
+exports.default = series(scriptsTask, homeTask, googleMapTask, mergedStylesTask, styleTask, copyImagesTask);
